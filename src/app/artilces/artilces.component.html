@@ -1,0 +1,57 @@
+<h2  style="margin-left:100px">Liste Des Articles</h2>
+
+<div fxLayout="row" fxLayoutAlign="end center">
+    <button routerLink="/FormPub" class="btn btn-primary">
+        create new
+    </button>
+</div>
+<mat-label>Filter</mat-label>
+<input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="nomFormation">
+        <th mat-header-cell class="px-12" *matHeaderCellDef> nomFormation </th>
+        <td mat-cell class="px-12" *matCellDef="let element"> {{element.nomFormation}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nomFormateur">
+        <th mat-header-cell *matHeaderCellDef> nomFormateur </th>
+        <td mat-cell *matCellDef="let element"> {{element.nomFormateur}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="niveau">
+        <th mat-header-cell class="px-12" *matHeaderCellDef> niveau </th>
+        <td mat-cell class="px-12" *matCellDef="let element"> {{element.niveau}} </td>
+    </ng-container>
+    <ng-container matColumnDef="certification">
+        <th mat-header-cell class="px-12" *matHeaderCellDef> certification </th>
+        <td mat-cell class="px-12" *matCellDef="let element"> {{element.certification}} </td>
+    </ng-container>
+    <ng-container matColumnDef="duree">
+        <th mat-header-cell class="px-12" *matHeaderCellDef> duree</th>
+        <td mat-cell class="px-12" *matCellDef="let element"> {{element.duree }} </td>
+    </ng-container>
+
+
+
+    <!--stickyEnd ma3neh dima ijiblik il column hethi dima fil le5er-->
+    <ng-container matColumnDef="Actions" stickyEnd>
+        <th mat-header-cell class="px-12" *matHeaderCellDef>Actions </th>
+        <td mat-cell class="px-12" *matCellDef="let element">
+            <button routerLink="{{element.id}}/edit">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="delete(element.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+        </td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<br/><br/>
+<app-footer></app-footer>

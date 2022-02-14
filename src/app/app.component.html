@@ -1,0 +1,91 @@
+<div *ngIf="templateadmin">
+<app-layout></app-layout>
+</div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="assets/img/favicon.ico">
+ 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Cabin:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+         
+        <script src="assets/js/jquery.js"></script>  
+        <script src="assets/js/modernizr.custom.js"></script>   
+        <script type="text/javascript">
+            
+        $(document).ready(function(){
+              jQuery('#headerwrap').backstretch([
+              "assets/img/bg/bg1.jpg",
+              "assets/img/bg/bg2.jpg",
+              "assets/img/bg/bg3.jpg"
+            ], {duration: 8000, fade: 500});
+    
+            // Map Position And Settings
+            $("#mapwrapper").gMap({ controls: false,
+                scrollwheel: false,
+                markers: [{     
+                    latitude:40.7566,
+                    longitude: -73.9863,
+                icon: { image: "assets/img/marker.png",
+                    iconsize: [44,44],
+                    iconanchor: [12,46],
+                    infowindowanchor: [12, 0] } }],
+                icon: { 
+                    image: "assets/img/marker.png", 
+                    iconsize: [26, 46],
+                    iconanchor: [12, 46],
+                    infowindowanchor: [12, 0] },
+                latitude:40.7566,
+                longitude: -73.9863,
+                zoom: 14 
+            });
+        });
+        </script>
+    </head>
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <i class="fa fa-bars menu-close"></i>
+            <div id="menu-logo">
+                <h2><span class="pe-7s-chat logo-icon"></span> Quote</h2>
+            </div>
+            <ul id="main-menu">
+                <li><a href="#about">About Us <i class="fa fa-home menu-icon"></i></a></li>
+            	<li *ngIf="templateuser"><a href="/profile">Profile <i class="fa fa-user menu-icon"></i></a></li>
+            	<li><a href="/members">Members <i class="fa fa-users menu-icon" ></i>                </a></li>
+            	<li><a href="/Tools">Publications<i class="fa fa-comments-o menu-icon"></i> </a></li>            	
+            	<li><a href="/articles">Article <i class="fa fa-file menu-icon" ></i></a></li>
+            	<li><a href="/Events">Events<i class="fa fa-calendar menu-icon" ></i> </a></li>
+            	<li><a href="/login">SignIn <i class="fa fa-sign-in menu-icon" ></i></a></li>
+            </ul>
+    
+
+            <ul id="social-icons">
+                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="headerwrap" class="half">
+        <div class="container">
+         <div class="gap"></div> 
+         <div id="bannertext" class="centered fade-down section-heading">
+             <h2 class="main-title">Single Post</h2>
+             <hr>
+             <p>She evil face fine calm have now. Separate screened he outweigh of distance landlord.</p>
+         </div>
+        <div *ngIf="templateuser">
+        <button (click)="logout()" style="margin-left:100px">Logout</button>
+        </div>
+     </div><!-- /container -->
+    </div><!-- /headerwrap -->
+    <!-- END NAV -->
+	
+	<!-- MAIN IMAGE SECTION -->
+
+
+<router-outlet></router-outlet>

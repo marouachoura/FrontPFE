@@ -1,0 +1,45 @@
+<div class="example-container" style="margin:150px">
+    <form [formGroup]="form" (ngSubmit)="onsubmit()">
+        <mat-form-field>
+            <input matInput placeholder="nomFormation" formControlName="nomFormation">
+
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="nomFormateur" formControlName="nomFormateur">
+
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="niveau" formControlName="niveau">
+
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="certification" formControlName="certification">
+
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="duree" formControlName="duree">
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+           
+            <input matInput [matDatepicker]="picker"  formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        <br>
+
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+
+
+</div>

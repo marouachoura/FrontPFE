@@ -1,0 +1,152 @@
+<!-- <div id="headerwrap" class="half">
+    <div class="container">
+     <div class="gap"></div> 
+     <div id="bannertext" class="centered fade-down section-heading">
+         <h2 class="main-title"> All About </h2>
+         <hr>
+         <p>welcome To profil</p>
+     </div>
+     <button (click)="logout()" style="margin-left:100px">Logout</button>
+ </div>
+</div>/headerwrap -->
+
+<div id="content-wrapper">
+   
+    <div class="container">
+        <div class="gap"></div>
+     <div class="row gap">
+         <div class="col-md-2 nopadding">
+             <p><img src={{pr.photo}} alt="" class="img-responsive" /></p>
+             <p class="post-details">nom : <strong>{{pr.nom}}</strong></p>
+             <p class="post-details">Prenom : <strong>{{pr.prenom}}</strong></p>
+             <a href="{{pr.cv}}"><strong>Resume</strong></a>
+             <p class="post-details">email : <strong>{{pr.email}}</strong></p>
+             <p class="post-details">Etablissement : <strong>{{pr.etablissement}}</strong></p>
+             <p class="post-details">Diplome : <strong>{{pr.diplome}}</strong></p>
+
+            					
+         </div>
+        
+
+         <div class="col-md-10 post-content" *ngIf="etd">
+             <p>Encadrant</p>
+             <table class="table" >
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Etablissement</th>
+                    <th scope="col">Email</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                  <tr>
+                    
+                    <td>{{pr.encadrant.nom}}</td>
+                    <td>{{pr.encadrant.prenom}}</td>
+                    <td>{{pr.encadrant.grade}}</td>
+                    <td>{{pr.encadrant.etablissement}}</td> 
+                    <td>{{pr.encadrant.email}}</td>   
+                </tr>
+            </tbody>
+        </table>
+        <p>Evenements</p>
+        <button routerLink="/FormEvent" class="btn btn-primary" style="float-right">Add Evenements</button>
+        <table class="table">
+           <thead>
+             <tr>
+               <th scope="col">Titre</th>
+               <th scope="col">Lieu</th>
+               <th scope="col">Date</th>
+               <th scope="col"></th>
+
+             </tr>
+           </thead>
+           <tbody>
+               
+             <tr *ngFor="let ev of pr.events">
+               
+               <td>{{ev.titre}}</td>
+               <td>{{ev.lieu}}</td>
+               <td>{{ev.date}}</td>
+               <td><button routerLink="/Events/{{ev.id}}/edit">
+                edit
+              </button></td>
+                
+           </tr>
+       </tbody>
+   </table>
+   <p>Publications</p>
+   <button routerLink="/FormPub" class="btn btn-primary" style="float-right">Add Publications</button>
+
+   <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">Type</th>
+
+          <th scope="col">Titre</th>
+          <th scope="col">Lien</th>
+          <th scope="col">Date</th>
+          <th scope="col">SourcePDF</th>
+          <th scope="col"></th>
+        
+        </tr>
+      </thead>
+      <tbody>
+          
+        <tr *ngFor="let i of pr.pubs">
+            <td>{{i.type}}</td>
+          <td>{{i.titre}}</td>
+          <td>{{i.lien}}</td>
+          <td>{{i.date}}</td>
+          <td>{{i.sourcepdf}}</td>
+          <td><button routerLink="/articles/{{i.id}}/edit">
+            edit
+          </button></td>
+
+           
+      </tr>
+  </tbody>
+</table>
+
+<p>Outils</p>
+<button routerLink="/FormTool" class="btn btn-primary" style="float-right">Add Outils</button>
+
+<table class="table">
+   <thead>
+     <tr>
+
+       <th scope="col">Source</th>
+       <th scope="col">Date</th>
+       <th scope="col"></th>
+
+     
+     </tr>
+   </thead>
+   <tbody>
+       
+    <tr *ngFor="let i of pr.outils">
+        <td>{{i.source}}</td>
+       <td>{{i.date}}</td>
+       <td><button routerLink="/Tools/{{i.id}}/edit">
+        edit
+      </button></td>
+     
+
+        
+   </tr>
+</tbody>
+</table>
+    </div>
+           
+             
+           
+
+            
+    
+ </div>
+</div>
+<app-footer></app-footer>
