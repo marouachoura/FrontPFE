@@ -1,19 +1,12 @@
 
 export interface Members {
     id: string;
+    nomPrenom: string;
     cin: string;
-    nom: string;
-    prenom: string;
-    dateNaisssance: string;
-    cv: string;
-    email: string;
-    photo: string;
-    diplome: string;
-    inscription: string;
-    encadrant: string;
-    grade:string;
-    etablissement:string;
-
+    dateNais: string;
+    login: string;
+    site: string;
+    
     /*password:string;
     dateInscription:string;
     diplome:string;

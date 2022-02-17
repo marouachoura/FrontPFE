@@ -1,57 +1,42 @@
 <div class="example-container"  style="margin:150px">
     <form [formGroup]="form" (ngSubmit)="onsubmit()">
         <mat-form-field>
+            <input matInput placeholder="nomPrenom" formControlName="nomPrenom">
+
+        </mat-form-field>
+        <br>
+        <mat-form-field>
             <input matInput placeholder="cin" formControlName="cin">
 
         </mat-form-field>
         <br>
+        <!-- <mat-form-field>
+            <input matInput placeholder="dateNais" formControlName="dateNais">
+
+        </mat-form-field>
+        <br> -->
         <mat-form-field>
-            <input matInput placeholder="NOM" formControlName="nom">
+            <input matInput placeholder="login" formControlName="login">
 
         </mat-form-field>
         <br>
         <mat-form-field>
-            <input matInput placeholder="PRENOM" formControlName="prenom">
-
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput placeholder="CV" formControlName="cv">
-
-        </mat-form-field>
-        <br>
+        <input matInput [matDatepicker]="picker"  formControlName="dateNais">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
        
-        <mat-form-field>
-            <input matInput placeholder="EMAIL" formControlName="email">
-
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput placeholder="Photo" formControlName="photo">
-
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput placeholder="DIPLOME" formControlName="diplome">
-
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput placeholder="dateNaissance" formControlName="dateNaissance" type="date">
-
-        </mat-form-field>
-        <br>
-        <mat-form-field>
+        <!-- <mat-form-field>
 
         <mat-form-field appearance="fill">
           
-            <mat-select formControlName="encadrant_id" placeholder="enseignant" >
-              <mat-option *ngFor="let i of ens" [value]="i.id">
-                {{i.nom}}  {{i.prenom}}
+            <mat-select formControlName="site" placeholder="site" >
+              <mat-option *ngFor="let i of sites" [value]="i.id">
+                {{i.nomSite}} {{i.id}}  
               </mat-option>
             </mat-select>
           </mat-form-field>
-        </mat-form-field>
+        </mat-form-field> -->
         <br><br>
         <button type="submit">Submit</button>
 

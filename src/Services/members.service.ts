@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GLOBAL } from 'src/app/app-config';
 import { HttpClient } from '@angular/common/http';
 import { Members } from 'src/Models/member.model';
+import { Sites } from 'src/Models/site.model';
 
 
 @Injectable({
@@ -12,12 +13,14 @@ export class MembersService {
 
   public tabb: Members[] = [];
 
+  public tabSites: Sites[] = [];
+
 
   public edittab: any = [];
   //public tab = GLOBAL._db.members;
   constructor(private httpClient: HttpClient) { }
   saveMember(member: Members): Promise<Members> {
-    return this.httpClient.post<Members>('http://localhost:9000/MEMBRE-SERVICE/membres/etudiant', member).toPromise();
+    return this.httpClient.post<Members>('http://localhost:8080/employes/add', member).toPromise();
     /*const memberToSave =  {...member,}
     memberToSave.id = member.id??Math.ceil(Math.random()*10000).toString();
     memberToSave.createDate = member.createDate??new Date().toString();
@@ -28,7 +31,7 @@ export class MembersService {
     return this.httpClient.post<Members>('http://localhost:9000/MEMBRE-SERVICE/membres/enseignant', member).toPromise();
   }
   getMemberById(id: string): Promise<Members> {
-    return this.httpClient.get<Members>('http://localhost:9000/MEMBRE-SERVICE/membre/' + id).toPromise();
+    return this.httpClient.get<Members>('http://localhost:8080/employes/find/' + id).toPromise();
     /*return new Promise(resolve => resolve(
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
@@ -47,7 +50,7 @@ export class MembersService {
 
   }*/
   GetALL(): Promise<Members[]> {
-    return this.httpClient.get<any[]>('http://localhost:9000/MEMBRE-SERVICE/membres').toPromise();
+    return this.httpClient.get<any[]>('http://localhost:8080/employes').toPromise();
 
   }
 
@@ -72,6 +75,18 @@ export class MembersService {
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
 
+  GetSites(): Promise<Sites[]> {
+    return this.httpClient.get<any[]>('http://localhost:8080/sites/').toPromise();
+
+  }
+
+  // GetSite(id: any): Promise<Sites> {
+  //   return this.httpClient.get<Sites>('http://localhost:8080/sites/{id}/' + id).toPromise();
+  //   /*return new Promise(resolve => resolve(
+  //     this.tab.filter(item => item.id===id)[0]??null));*/
+  // }
+
+  
   
 
 

@@ -31,8 +31,8 @@ export class MembreListComponent implements OnInit {
   dataSourcee: MatTableDataSource<Members> = new MatTableDataSource(this.ms.tabb);
 
   //3al 9ad ma3andik columns tzidou fi displayedcolumns ==9adeh 3andik min ngcontainer fil html
-  displayedColumns: string[] = ["photo", "prenom", "nom", "email", "dateNaissance", "cv", "inscription","diplome","Actions"];
-  displayedColumn: string[] = ["photo", "prenom", "nom", "email", "dateNaissance", "cv", "grade","etablissement","Actions"];
+  displayedColumns: string[] = ["nomPrenom", "cin", "dateNais", "login", "site","Actions"];
+ // displayedColumn: string[] = ["photo", "prenom", "nom", "email", "dateNaissance", "cv", "grade","etablissement","Actions"];
 
 
 
@@ -65,21 +65,25 @@ export class MembreListComponent implements OnInit {
 
     //this.ms.GetALL().then((data)=>this.dataSource.data=data);
     //console.log(this.dataSource.data);
-    this.ms.GetALL()
-      .then((data) => {
+    // this.ms.GetALL()
+    //   .then((data) => {
 
-        this.dataSource.data = data.filter(a=>a.grade==null);
-        this.dataSourcee.data = data.filter(a=>a.grade!=null);
-        console.log(data.filter(a=>a.grade!=null))
+    //     this.dataSource.data = data.filter(a=>a.grade==null);
+    //     this.dataSourcee.data = data.filter(a=>a.grade!=null);
+    //     console.log(data.filter(a=>a.grade!=null))
        
-      });
+    //   });
     //console.log(this.dataSource.data);
+    this.ms.GetALL()
+    .then((data) => {
+      this.dataSource.data = data;
+    });
   }
-  GetMembersen(): void {
-  this.ms.GetEnseignant().then(
-  (data)=>{
-    this.en=data;})
-  }
+  // GetMembersen(): void {
+  // this.ms.GetEnseignant().then(
+  // (data)=>{
+  //   this.en=data;})
+  // }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

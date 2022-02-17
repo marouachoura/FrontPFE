@@ -14,24 +14,24 @@ export class MemberFormComponent implements OnInit {
   currentid: any;
   item1: any;
   ens:any;
-
+  sites:any ;
 
   constructor(private ms: MembersService, private router: Router, private acivateRoute: ActivatedRoute) { }
   initform(item: any): void {
 
     //item? .attribut : yefhem ken si item.attribut fih valeur ye5ouha sinon ye5ou null
     this.form = new FormGroup({
+      nomPrenom: new FormControl(item?.nomPrenom, [Validators.required]),
       cin: new FormControl(item?.cin, [Validators.required]),
-      nom: new FormControl(item?.nom, [Validators.required]),
-      cv: new FormControl(item?.cv, [Validators.required]),
-      prenom: new FormControl(item?.prenom, [Validators.required]),
-      email: new FormControl(item?.email, [Validators.required]),
-      photo: new FormControl(item?.photo),
-      diplome: new FormControl(item?.diplome),
-      encadrant_id: new FormControl(item?.encadrant_id),
+      dateNais: new FormControl(item?.dateNais),
+      login: new FormControl(item?.login, [Validators.required]),
+     // site: new FormControl(item?.site, [Validators.required]),
+      // photo: new FormControl(item?.photo),
+      // diplome: new FormControl(item?.diplome),
+      // encadrant_id: new FormControl(item?.encadrant_id),
 
 
-      dateNaissance: new FormControl(item?.dateNaissance, [Validators.required])
+      // dateNaissance: new FormControl(item?.dateNaissance, [Validators.required])
 
 
 
@@ -54,10 +54,16 @@ export class MemberFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-this.ms.GetEnseignant().then(
+// this.ms.GetEnseignant().then(
+//   (data)=>{
+//     this.ens=data;
+//     console.log(this.ens)
+//   }
+// )
+this.ms.GetSites().then(
   (data)=>{
-    this.ens=data;
-    console.log(this.ens)
+    this.sites=data;
+    console.log(this.sites)
   }
 )
 
