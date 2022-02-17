@@ -26,27 +26,62 @@
   </ng-container>
 
   <!-- Symbol Column -->
-  <ng-container matColumnDef="cin">
-    <th mat-header-cell class="px-12" *matHeaderCellDef> cin </th>
-    <td mat-cell class="px-12" *matCellDef="let element"> {{element.cin}} </td>
-  </ng-container>
-  <ng-container matColumnDef="dateNais">
-    <th mat-header-cell class="px-12" *matHeaderCellDef> dateNais </th>
-    <td mat-cell class="px-12" *matCellDef="let element"> {{element.dateNais}} </td>
-  </ng-container>
-  <ng-container matColumnDef="login">
-    <th mat-header-cell class="px-12" *matHeaderCellDef> login</th>
-    <td mat-cell class="px-12" *matCellDef="let element"> {{element.login }} </td>
-  </ng-container>
-  <ng-container matColumnDef="site">
-    <th mat-header-cell class="px-12" *matHeaderCellDef> site</th>
-    <td mat-cell class="px-12" *matCellDef="let element"> {{element.site }} </td>
-  </ng-container>
+    <ng-container matColumnDef="cin">
+      <th mat-header-cell class="px-12" *matHeaderCellDef> cin </th>
+      <td mat-cell class="px-12" *matCellDef="let element"> {{element.cin}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dateNais">
+      <th mat-header-cell class="px-12" *matHeaderCellDef> dateNais </th>
+      <td mat-cell class="px-12" *matCellDef="let element"> {{element.dateNais}} </td>
+    </ng-container>
+    <ng-container matColumnDef="login">
+      <th mat-header-cell class="px-12" *matHeaderCellDef> login</th>
+      <td mat-cell class="px-12" *matCellDef="let element"> {{element.login }} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="formations">
+      <th mat-header-cell class="px-12" *matHeaderCellDef> formations</th>
+      <td mat-cell class="px-12" *matCellDef="let element"> {{element.formations.id }} </td>
+    </ng-container> -->
+    <!-- <ng-container matColumnDef="site">
+      <th mat-header-cell class="px-12" *matHeaderCellDef> site</th>
+      <td mat-cell class="px-12" *matCellDef="let element"> {{element.site }} </td>
+    </ng-container> -->
+
+    <!-- <div class="col-md-10 post-content">
+      <p>Encadrant</p>
+      <table class="table" >
+         <thead>
+           <tr>
+             <th scope="col">nomPrenom</th>
+             <th scope="col">cin</th>
+             <th scope="col">dateNais</th>
+             <th scope="col">login</th>
+             <th scope="col">site</th>
+
+           </tr>
+         </thead>
+         <tbody>
+             
+           <tr>
+             
+             <td>{{element.nomPrenom}}</td>
+             <td>{{element.cin}}</td>
+             <td>{{element.dateNais}}</td>
+             <td>{{element.login}}</td> 
+             <td>{{element.site}}</td>   
+         </tr>
+     </tbody> -->
+
   <!-- <ng-container matColumnDef="site">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> formations</th>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.formations.id }} </td>
+  </ng-container> -->
+  <!-- <ng-container matColumnDef="formations">
       
-        <mat-select formControlName="encadrant_id" placeholder="enseignant" >
-          <mat-option *ngFor="let i of ens" [value]="i.id">
-            {{i.nom}}  {{i.prenom}}
+        <mat-select formControlName="formations" placeholder="formations" >
+          <mat-option *ngFor="let i of formations" [value]="i.id">
+            {{i.nomFormation}}  {{i.nomFormateur}}
+            
           </mat-option>
         </mat-select>
      </ng-container> -->
@@ -71,6 +106,10 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <br/><br/>
+
+
+
+
 <!--h2 style="margin-left:100px;">List des Enseignants</h2>
 <table mat-table [dataSource]="dataSourcee" class="mat-elevation-z8"style="margin-left:100px;margin-top:20px" >
   <ng-container matColumnDef="photo">

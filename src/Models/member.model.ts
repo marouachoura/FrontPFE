@@ -5,7 +5,9 @@ export interface Members {
     cin: string;
     dateNais: string;
     login: string;
-    site: string;
+    formations :string ;
+  //  site: string;
+   
     
     /*password:string;
     dateInscription:string;

@@ -25,13 +25,14 @@ export class MembreListComponent implements OnInit {
   d='';
   pr:any;
   ens=false;
+ 
   en:any;
   //any : quelque soit le type
   dataSource: MatTableDataSource<Members> = new MatTableDataSource(this.ms.tabb);
   dataSourcee: MatTableDataSource<Members> = new MatTableDataSource(this.ms.tabb);
 
   //3al 9ad ma3andik columns tzidou fi displayedcolumns ==9adeh 3andik min ngcontainer fil html
-  displayedColumns: string[] = ["nomPrenom", "cin", "dateNais", "login", "site","Actions"];
+  displayedColumns: string[] = ["nomPrenom", "cin", "dateNais", "login" ,"formations","Actions"];
  // displayedColumn: string[] = ["photo", "prenom", "nom", "email", "dateNaissance", "cv", "grade","etablissement","Actions"];
 
 
@@ -77,8 +78,11 @@ export class MembreListComponent implements OnInit {
     this.ms.GetALL()
     .then((data) => {
       this.dataSource.data = data;
+      console.log(data);
     });
+    
   }
+  
   // GetMembersen(): void {
   // this.ms.GetEnseignant().then(
   // (data)=>{

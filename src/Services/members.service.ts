@@ -50,7 +50,7 @@ export class MembersService {
 
   }*/
   GetALL(): Promise<Members[]> {
-    return this.httpClient.get<any[]>('http://localhost:8080/employes').toPromise();
+    return this.httpClient.get<Members[]>('http://localhost:8080/employes').toPromise();
 
   }
 
