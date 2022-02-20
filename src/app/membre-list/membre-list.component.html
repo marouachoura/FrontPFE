@@ -38,6 +38,16 @@
       <th mat-header-cell class="px-12" *matHeaderCellDef> login</th>
       <td mat-cell class="px-12" *matCellDef="let element"> {{element.login }} </td>
     </ng-container>
+    <ng-container matColumnDef="formations" stickyEnd>
+      <th mat-header-cell class="px-12" *matHeaderCellDef>formations </th>
+      <td mat-cell class="px-12" *matCellDef="let element">
+          <button routerLink="{{element.id}}/formationsDetail">
+              afficher le details
+          </button>
+
+      </td>
+
+  </ng-container>
     <!-- <ng-container matColumnDef="formations">
       <th mat-header-cell class="px-12" *matHeaderCellDef> formations</th>
       <td mat-cell class="px-12" *matCellDef="let element"> {{element.formations.id }} </td>

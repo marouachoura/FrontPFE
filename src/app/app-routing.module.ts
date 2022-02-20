@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { Layoutmembre } from './layoutmembre/layoutmembre';
 import { EnseignantFormComponent } from './enseignant-form/enseignant-form.component';
+import { EmploueFormationDetailComponent } from './emploue-formation-detail/emploue-formation-detail.component';
 const routes: Routes = [
 
   { path: 'members', pathMatch: 'full', component: MembreListComponent },
@@ -25,12 +26,16 @@ const routes: Routes = [
   { path: 'FormMembre', pathMatch: 'full', component: MemberFormComponent },
   { path: 'FormEnseignant', pathMatch: 'full', component: EnseignantFormComponent },
 
+
   { path: 'FormPub', pathMatch: 'full', component: ArticleFormComponent },
   //pour créer une variable dynamique fil path naamlou :im il variable
   { path: 'members/:id/edit', pathMatch: 'full', component: MemberFormComponent },
   { path: 'articles/:id/edit', pathMatch: 'full', component: ArticleFormComponent },
   { path: 'Tools/:id/edit', pathMatch: 'full', component: OutilFormComponent },
   { path: 'Events/:id/edit', pathMatch: 'full', component: EventFormComponent },
+
+
+  { path: 'members/:id/formationsDetail', pathMatch: 'full', component: EmploueFormationDetailComponent },
   //{ path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: '', pathMatch: 'full', redirectTo: 'members' },
   //{ path: '**', redirectTo: 'members' },

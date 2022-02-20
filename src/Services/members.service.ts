@@ -3,6 +3,7 @@ import { GLOBAL } from 'src/app/app-config';
 import { HttpClient } from '@angular/common/http';
 import { Members } from 'src/Models/member.model';
 import { Sites } from 'src/Models/site.model';
+import { Publications } from 'src/Models/article.model';
 
 
 @Injectable({
@@ -12,6 +13,7 @@ export class MembersService {
 
 
   public tabb: Members[] = [];
+  public tab : Publications[] =[] ;
 
   public tabSites: Sites[] = [];
 
@@ -74,9 +76,17 @@ export class MembersService {
     /*return new Promise(resolve => resolve(
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
+   GetSiteEmploye(id: any): Promise<Sites> {
+    return this.httpClient.get<any>('http://localhost:8080/employes/site'+id).toPromise();
+
+  }
 
   GetSites(): Promise<Sites[]> {
     return this.httpClient.get<any[]>('http://localhost:8080/sites/').toPromise();
+
+  }
+  GetFomations(id : any): Promise<Publications[]> {
+    return this.httpClient.get<any[]>('http://localhost:8080/employes/formations/'+id).toPromise();
 
   }
 

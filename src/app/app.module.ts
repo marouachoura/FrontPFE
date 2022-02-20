@@ -27,6 +27,7 @@ import { Layoutmembre } from './layoutmembre/layoutmembre';
 import { MatNativeDateModule } from '@angular/material/core'; 
 import { EnseignantFormComponent } from './enseignant-form/enseignant-form.component';
 import { FootertComponent } from './footer/footer.component';
+import { EmploueFormationDetailComponent } from './emploue-formation-detail/emploue-formation-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { FootertComponent } from './footer/footer.component';
     RegisterComponent,
     LoginComponent,
     EnseignantFormComponent,
-    FootertComponent
+    FootertComponent,
+    EmploueFormationDetailComponent
 
   ],
   imports: [
