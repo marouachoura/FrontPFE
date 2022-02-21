@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MembersService } from 'src/Services/members.service';
-
+interface Site {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-member-form',
@@ -14,7 +17,12 @@ export class MemberFormComponent implements OnInit {
   currentid: any;
   item1: any;
   ens:any;
-  sites:any ;
+ // sites:any ;
+  // sites: Site[] = [
+  //   {value: 'Sfax', viewValue: 'Sfax'},
+  //   {value: 'Tunis', viewValue: 'Tunis'},
+  //   {value: 'France', viewValue: 'France'},
+  // ];
 
   constructor(private ms: MembersService, private router: Router, private acivateRoute: ActivatedRoute) { }
   initform(item: any): void {
@@ -25,7 +33,7 @@ export class MemberFormComponent implements OnInit {
       cin: new FormControl(item?.cin, [Validators.required]),
       dateNais: new FormControl(item?.dateNais),
       login: new FormControl(item?.login, [Validators.required]),
-     // site: new FormControl(item?.site, [Validators.required]),
+      site: new FormControl(item?.site, [Validators.required]),
       // photo: new FormControl(item?.photo),
       // diplome: new FormControl(item?.diplome),
       // encadrant_id: new FormControl(item?.encadrant_id),
@@ -60,12 +68,12 @@ export class MemberFormComponent implements OnInit {
 //     console.log(this.ens)
 //   }
 // )
-this.ms.GetSites().then(
-  (data)=>{
-    this.sites=data;
-    console.log(this.sites)
-  }
-)
+// this.ms.GetSites().then(
+//   (data)=>{
+//     this.sites=data;
+//     console.log(this.sites)
+//   }
+// )
 
     this.currentid = this.acivateRoute.snapshot.params.id;//récupéer l'id il mawjoud fil url
     // if truely testiha bil  !! 

@@ -112,34 +112,8 @@
   </tbody>
 </table>
 
-<p>Outils</p>
-<button routerLink="/FormTool" class="btn btn-primary" style="float-right">Add Outils</button>
 
-<table class="table">
-   <thead>
-     <tr>
 
-       <th scope="col">Source</th>
-       <th scope="col">Date</th>
-       <th scope="col"></th>
-
-     
-     </tr>
-   </thead>
-   <tbody>
-       
-    <tr *ngFor="let i of pr.outils">
-        <td>{{i.source}}</td>
-       <td>{{i.date}}</td>
-       <td><button routerLink="/Tools/{{i.id}}/edit">
-        edit
-      </button></td>
-     
-
-        
-   </tr>
-</tbody>
-</table>
     </div>
            
              

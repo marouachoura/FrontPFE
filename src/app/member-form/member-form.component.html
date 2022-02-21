@@ -20,11 +20,41 @@
 
         </mat-form-field>
         <br>
-        <mat-form-field>
+        <!-- <mat-form-field>
         <input matInput [matDatepicker]="picker"  formControlName="dateNais">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field> -->
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="site" formControlName="site">
+
+    </mat-form-field>
+<br>
+
+<mat-form-field>
+  <input matInput placeholder="dateNais" formControlName="dateNais">
+
+</mat-form-field>
+    <!-- <mat-form-field style="width:10vw">
+      <input matInput [matDatepicker]="picker" placeholder="choisir une date .." formControlName="dateNais">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Site</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let site of sites" [value]="site.value">
+            {{site.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      
+
+
+
+
+
        
         <!-- <mat-form-field>
 

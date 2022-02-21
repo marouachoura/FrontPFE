@@ -48,6 +48,10 @@
       </td>
 
   </ng-container>
+  <ng-container matColumnDef="site">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> site</th>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.site }} </td>
+  </ng-container>
     <!-- <ng-container matColumnDef="formations">
       <th mat-header-cell class="px-12" *matHeaderCellDef> formations</th>
       <td mat-cell class="px-12" *matCellDef="let element"> {{element.formations.id }} </td>

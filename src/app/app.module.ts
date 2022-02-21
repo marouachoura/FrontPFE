@@ -17,10 +17,6 @@ import { FirebaseModule } from './firebase/firebase.module';
 //import { LoginComponent } from './logi/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleFormComponent } from './article-form/article-form.component';
-import { OutilListComponent } from './outil-list/outil-list.component';
-import { OutilFormComponent } from './outil-form/outil-form.component';
-import { EventFormComponent } from './event-form/event-form.component';
-import { EventListComponent } from './event-list/event-list.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { Layoutmembre } from './layoutmembre/layoutmembre';
@@ -39,10 +35,6 @@ import { EmploueFormationDetailComponent } from './emploue-formation-detail/empl
     ArtilcesComponent,
     //LoginComponent,
     ArticleFormComponent,
-    OutilListComponent,
-    OutilFormComponent,
-    EventFormComponent,
-    EventListComponent,
     RegisterComponent,
     LoginComponent,
     EnseignantFormComponent,

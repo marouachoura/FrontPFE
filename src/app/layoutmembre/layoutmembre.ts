@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/AuthService';
 import { MembersService } from 'src/Services/members.service';
-import { OutilService } from 'src/Services/outil.service';
+
 import { TokenStorageService } from 'src/Services/token-storage.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
@@ -17,7 +17,7 @@ comp:any;
 d:any;
 pr:any;
 etd:any;
-    constructor(private ms: MembersService,private tokenStorage: TokenStorageService,private router: Router,private dialog: MatDialog,private ou: OutilService) { }
+    constructor(private ms: MembersService,private tokenStorage: TokenStorageService,private router: Router,private dialog: MatDialog) { }
 
     connect(id:any){
       this.ms.getMemberByCompte(id)
@@ -40,7 +40,7 @@ etd:any;
         this.pr=data;
        // console.log(this.pr.events[0].titre)
        // console.log(this.pr.events)
-       console.log(this.pr.outils)
+      // console.log(this.pr.outils)
        console.log(this.pr.pubs)
 
 

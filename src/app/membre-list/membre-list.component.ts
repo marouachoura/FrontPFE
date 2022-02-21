@@ -32,7 +32,7 @@ export class MembreListComponent implements OnInit {
   dataSourcee: MatTableDataSource<Members> = new MatTableDataSource(this.ms.tabb);
 
   //3al 9ad ma3andik columns tzidou fi displayedcolumns ==9adeh 3andik min ngcontainer fil html
-  displayedColumns: string[] = ["nomPrenom", "cin", "dateNais", "login" ,"formations","Actions"];
+  displayedColumns: string[] = ["nomPrenom", "cin", "dateNais", "login" ,"formations","site","Actions"];
  // displayedColumn: string[] = ["photo", "prenom", "nom", "email", "dateNaissance", "cv", "grade","etablissement","Actions"];
 
 
