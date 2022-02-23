@@ -24,6 +24,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { EnseignantFormComponent } from './enseignant-form/enseignant-form.component';
 import { FootertComponent } from './footer/footer.component';
 import { EmploueFormationDetailComponent } from './emploue-formation-detail/emploue-formation-detail.component';
+import { authInterceptorProviders } from 'src/_helpers/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,7 @@ import { EmploueFormationDetailComponent } from './emploue-formation-detail/empl
 
   ],
 
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

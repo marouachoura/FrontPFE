@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GLOBAL } from 'src/app/app-config';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Members } from 'src/Models/member.model';
 import { Sites } from 'src/Models/site.model';
 import { Publications } from 'src/Models/article.model';
@@ -19,10 +19,11 @@ export class MembersService {
 
 
   public edittab: any = [];
+  
   //public tab = GLOBAL._db.members;
   constructor(private httpClient: HttpClient) { }
   saveMember(member: Members): Promise<Members> {
-    return this.httpClient.post<Members>('http://localhost:8080/employes/add', member).toPromise();
+    return this.httpClient.post<Members>('http://localhost:8080/api/test/employes/add', member).toPromise();
     /*const memberToSave =  {...member,}
     memberToSave.id = member.id??Math.ceil(Math.random()*10000).toString();
     memberToSave.createDate = member.createDate??new Date().toString();
@@ -33,7 +34,7 @@ export class MembersService {
     return this.httpClient.post<Members>('http://localhost:9000/MEMBRE-SERVICE/membres/enseignant', member).toPromise();
   }
   getMemberById(id: string): Promise<Members> {
-    return this.httpClient.get<Members>('http://localhost:8080/employes/find/' + id).toPromise();
+    return this.httpClient.get<Members>('http://localhost:8080/api/test/employes/find/' + id).toPromise();
     /*return new Promise(resolve => resolve(
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
@@ -52,7 +53,7 @@ export class MembersService {
 
   }*/
   GetALL(): Promise<Members[]> {
-    return this.httpClient.get<Members[]>('http://localhost:8080/employes').toPromise();
+    return this.httpClient.get<Members[]>('http://localhost:8080/api/test/employes' ).toPromise();
 
   }
 
@@ -77,16 +78,16 @@ export class MembersService {
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
    GetSiteEmploye(id: any): Promise<Sites> {
-    return this.httpClient.get<any>('http://localhost:8080/employes/site'+id).toPromise();
+    return this.httpClient.get<any>('http://localhost:8080/api/test/employes/site'+id).toPromise();
 
   }
 
   GetSites(): Promise<Sites[]> {
-    return this.httpClient.get<any[]>('http://localhost:8080/sites/').toPromise();
+    return this.httpClient.get<any[]>('http://localhost:8080/api/test/sites/').toPromise();
 
   }
   GetFomations(id : any): Promise<Publications[]> {
-    return this.httpClient.get<any[]>('http://localhost:8080/employes/formations/'+id).toPromise();
+    return this.httpClient.get<any[]>('http://localhost:8080/api/test/employes/formations/'+id).toPromise();
 
   }
 
