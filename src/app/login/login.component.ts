@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     const { username, password } = this.form;
 
     this.authService.login(username, password).subscribe(
+
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
@@ -44,7 +45,8 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.d=this.tokenStorage.getUser().id;
         console.log(this.tokenStorage.getUser())
-        this.reloadPage();
+       // this.reloadPage();
+        console.log(data) ;
       },
       err => {
         this.errorMessage = err.error.message;
