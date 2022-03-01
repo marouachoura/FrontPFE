@@ -10,11 +10,7 @@
 
         </mat-form-field>
         <br>
-        <!-- <mat-form-field>
-            <input matInput placeholder="dateNais" formControlName="dateNais">
-
-        </mat-form-field>
-        <br> -->
+      
         <mat-form-field>
             <input matInput placeholder="login" formControlName="login">
 
@@ -26,47 +22,42 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field> -->
       <br>
-      <mat-form-field>
+      <!-- <mat-form-field>
         <input matInput placeholder="site" formControlName="site">
 
-    </mat-form-field>
+    </mat-form-field> -->
+    <mat-form-field>
+
+      <mat-form-field appearance="fill">
+        
+          <mat-select formControlName="site" placeholder="site" >
+            <mat-option *ngFor="let i of sites" [value]="i.id">
+              {{i.nomSite}} 
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-form-field>
 <br>
 
-<!-- <mat-form-field>
-  <input matInput placeholder="dateNais" formControlName="dateNais">
+    <mat-form-field>
 
-</mat-form-field> -->
+      <mat-form-field appearance="fill">
+        
+          <mat-select formControlName="formations" placeholder="formationsDetail" >
+            <mat-option *ngFor="let i of formations" [value]="i.id">
+              {{i.nomFormation}} 
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-form-field>
+    <br>
+
     <mat-form-field style="width:10vw">
       <input matInput [matDatepicker]="picker" placeholder="choisir une date .." formControlName="dateNais">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>Site</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let site of sites" [value]="site.value">
-            {{site.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
-      
-
-
-
-
-
-       
-        <!-- <mat-form-field>
-
-        <mat-form-field appearance="fill">
-          
-            <mat-select formControlName="site" placeholder="site" >
-              <mat-option *ngFor="let i of sites" [value]="i.id">
-                {{i.nomSite}} {{i.id}}  
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-form-field> -->
+  
         <br><br>
         <button type="submit">Submit</button>
 

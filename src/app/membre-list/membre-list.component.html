@@ -2,8 +2,8 @@
   <!-- <div *ngIf="ad"><button routerLink="/FormMembre" class="btn btn-primary">
     create Student
   </button> -->
-   <div ><button routerLink="/FormMembre" class="btn btn-primary">
-    create Student
+   <div *ngIf="templateadmin"><button routerLink="/FormMembre" class="btn btn-primary">
+    create Employe
   </button> 
   <!-- <button routerLink="/FormEnseignant" class="btn btn-primary">
     create Teacher
@@ -50,7 +50,7 @@
   </ng-container>
   <ng-container matColumnDef="site">
     <th mat-header-cell class="px-12" *matHeaderCellDef> site</th>
-    <td mat-cell class="px-12" *matCellDef="let element"> {{element.site }} </td>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.site.nomSite }} </td>
   </ng-container>
     <!-- <ng-container matColumnDef="formations">
       <th mat-header-cell class="px-12" *matHeaderCellDef> formations</th>
@@ -101,8 +101,8 @@
      </ng-container> -->
 
   <!--stickyEnd ma3neh dima ijiblik il column hethi dima fil le5er-->
-  <ng-container matColumnDef="Actions" stickyEnd>
-    <th mat-header-cell class="px-12" *matHeaderCellDef> </th>
+  <!-- <ng-container matColumnDef="Actions" stickyEnd>
+    <th mat-header-cell class="px-12" *matHeaderCellDef>Actions </th>
     <td mat-cell class="px-12" *matCellDef="let element">
      <div *ngIf="ad"> <button routerLink="{{element.id}}/edit">
         <mat-icon>edit</mat-icon>
@@ -117,7 +117,23 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+  <ng-container matColumnDef="Actions" stickyEnd>
+    <th mat-header-cell class="px-12" *matHeaderCellDef>Actions </th>
+    <td mat-cell class="px-12" *matCellDef="let element">
+        <button routerLink="{{element.id}}/edit">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="delete(element.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+
+    </td>
+
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <br/><br/>
 
@@ -189,4 +205,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
 </table>
 <br/><br/> -->
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

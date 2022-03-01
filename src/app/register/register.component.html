@@ -1,29 +1,77 @@
 <div class="col-md-12">
   <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
-    <form
-      *ngIf="!isSuccessful"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
+    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+
+
+      <div class="form-group">
+        <label for="nomPrenom">nomPrenom</label>
+        <input type="text" class="form-control" name="nomPrenom" [(ngModel)]="form.nomPrenom" required minlength="3"
+          maxlength="20" #nomPrenom="ngModel" />
+        <div class="alert-danger" *ngIf="nomPrenom.errors && f.submitted">
+          <div *ngIf="nomPrenom.errors.required">nomPrenom is required</div>
+          <div *ngIf="nomPrenom.errors.minlength">
+            nomPrenom must be at least 3 characters
+          </div>
+          <div *ngIf="nomPrenom.errors.maxlength">
+            Username must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="cin">cin</label>
+        <input type="text" class="form-control" name="cin" [(ngModel)]="form.cin" required minlength="6"
+          maxlength="8" #cin="ngModel" />
+        <div class="alert-danger" *ngIf="cin.errors && f.submitted">
+          <div *ngIf="cin.errors.required">cin is required</div>
+          <div *ngIf="cin.errors.minlength">
+            cin must be at least 6 characters
+          </div>
+          <div *ngIf="cin.errors.maxlength">
+            Username must be at most 8 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateNais">Date Naissance</label>
+        <input type="date" class="form-control" name="dateNais" [(ngModel)]="form.dateNais"  #dateNais="ngModel" />
+        <div class="alert-danger" *ngIf="dateNais.errors && f.submitted">
+          <div *ngIf="dateNais.errors.required">date is required</div>
+          
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <label for="login">login</label>
+        <input type="text" class="form-control" name="login" [(ngModel)]="form.login" required minlength="3"
+          maxlength="20" #login="ngModel" />
+        <div class="alert-danger" *ngIf="login.errors && f.submitted">
+          <div *ngIf="login.errors.required">login is required</div>
+          <div *ngIf="login.errors.minlength">
+            login must be at least 3 characters
+          </div>
+          <div *ngIf="login.errors.maxlength">
+            login must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="site">Site</label>
+        <select type="text" class="form-control" name="site" [(ngModel)]="form.site"  #site="ngModel" >
+
+          <option *ngFor="let i of sites" [ngValue]="i">{{i.nomSite}}</option>
+        </select>
+      </div>
+
+
       <div class="form-group">
         <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          minlength="3"
-          maxlength="20"
-          #username="ngModel"
-        />
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel" />
         <div class="alert-danger" *ngIf="username.errors && f.submitted">
           <div *ngIf="username.errors.required">Username is required</div>
           <div *ngIf="username.errors.minlength">
@@ -36,15 +84,8 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          [(ngModel)]="form.email"
-          required
-          email
-          #email="ngModel"
-        />
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+          #email="ngModel" />
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
           <div *ngIf="email.errors.required">Email is required</div>
           <div *ngIf="email.errors.email">
@@ -52,17 +93,15 @@
           </div>
         </div>
       </div>
+
+      
+
+
+
       <div class="form-group">
         <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          [(ngModel)]="form.password"
-          required
-          minlength="6"
-          #password="ngModel"
-        />
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" />
         <div class="alert-danger" *ngIf="password.errors && f.submitted">
           <div *ngIf="password.errors.required">Password is required</div>
           <div *ngIf="password.errors.minlength">

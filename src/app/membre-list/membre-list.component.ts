@@ -1,11 +1,12 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import {  Members } from 'src/Models/member.model';
 import { MembersService } from 'src/Services/members.service';
 import { TokenStorageService } from 'src/Services/token-storage.service';
+
 
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
@@ -15,7 +16,10 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   templateUrl: './membre-list.component.html',
   styleUrls: ['./membre-list.component.css']
 })
+
+
 export class MembreListComponent implements OnInit {
+  public templateadmin=false;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -40,6 +44,7 @@ export class MembreListComponent implements OnInit {
   //fil constructeur na3mel instance min il service : ma3neha injectit il service 
   constructor(private ms: MembersService, private router: Router, private dialog: MatDialog,private tokenStorage: TokenStorageService) {
     this.dataSource = new MatTableDataSource(this.ms.tabb);
+    
   }
   delete(id: string) {
 
@@ -112,6 +117,16 @@ export class MembreListComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+     
+       if(this.roles=='ROLE_ADMIN'){
+        this.templateadmin=true;
+      }
+     
+    }
+    
     this.GetMembers();
     //console.log(this.tokenStorage.getUser().id);
     if (this.tokenStorage.getToken()) {
@@ -143,3 +158,4 @@ export class MembreListComponent implements OnInit {
   }
 
 }
+

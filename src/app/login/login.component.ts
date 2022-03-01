@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/auth.service';
 import { TokenStorageService } from 'src/Services/token-storage.service';
 
@@ -15,10 +16,14 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
-  d:any;
+ // roles: string[] = [];
+ roles='';
+  d: any;
+  templateuser = false;
+  templateadmin = false;
+ // templateaVisitor = false;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private ngZone: NgZone) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -26,6 +31,7 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
       console.log(this.tokenStorage.getUser())
       console.log(this.tokenStorage.getUser().id)
+      
 
       console.log(this.roles);
     }
@@ -43,10 +49,24 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.d=this.tokenStorage.getUser().id;
+        this.d = this.tokenStorage.getUser().id;
         console.log(this.tokenStorage.getUser())
-       // this.reloadPage();
-        console.log(data) ;
+        this.router.navigate(['./members'])
+        // this.reloadPage();
+        console.log(data);
+        // this.router.navigate(['./members'])
+        //this.ngZone.run(() => this.router.navigate(['/members']));
+        // if (this.roles == 'ROLE_USER') {
+        //   this.templateuser = true
+        //   this.router.navigate(['./members'])
+        // }
+        // else if (this.roles == 'ROLE_ADMIN') {
+        //   this.templateadmin = true;
+        //   this.router.navigate(['./members'])
+        // }
+        // else {
+        //   this.templateaVisitor = true
+        // }
       },
       err => {
         this.errorMessage = err.error.message;

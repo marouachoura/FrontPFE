@@ -14,9 +14,9 @@ export class AppComponent {
   roles='';
   templateuser=false;
   templateadmin=false;
-  templateaVisitor=false;
+  //templateaVisitor=false;
 
-constructor(private tokenStorage: TokenStorageService,private router: Router) {
+constructor(public tokenStorage: TokenStorageService,private router: Router) {
   
 }
 ngOnInit(): void {
@@ -29,9 +29,9 @@ if (this.tokenStorage.getToken()) {
   else if(this.roles=='ROLE_ADMIN'){
     this.templateadmin=true;
   }
-  else{
-    this.templateaVisitor=true
-  }
+  // else{
+  //   this.templateaVisitor=true
+  // }
 }
 }
 logout(): void {

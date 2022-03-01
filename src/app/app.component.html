@@ -1,7 +1,7 @@
-<div *ngIf="templateadmin">
+<div *ngIf=" tokenStorage.isAdmin()">
 <app-layout></app-layout>
 </div>
-    <head>
+    <head >
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -46,7 +46,8 @@
         });
         </script>
     </head>
-    <nav class="menu" id="theMenu">
+    <nav *ngIf="tokenStorage.isUser() " class="menu" id="theMenu">
+        <!-- && isLoggedIn -->
         <div class="menu-wrap">
             <i class="fa fa-bars menu-close"></i>
             <div id="menu-logo">
@@ -57,9 +58,10 @@
             	<li *ngIf="templateuser"><a href="/profile">Profile <i class="fa fa-user menu-icon"></i></a></li>
             	<li><a href="/members">Members <i class="fa fa-users menu-icon" ></i>                </a></li>
             	<!-- <li><a href="/Tools">Publications<i class="fa fa-comments-o menu-icon"></i> </a></li>            	 -->
-            	<li><a href="/articles">Article <i class="fa fa-file menu-icon" ></i></a></li>
+            	<li><a href="/formations">Formations <i class="fa fa-file menu-icon" ></i></a></li>
             	<!-- <li><a href="/Events">Events<i class="fa fa-calendar menu-icon" ></i> </a></li> -->
-            	<li><a href="/login">SignIn <i class="fa fa-sign-in menu-icon" ></i></a></li>
+            	<!-- <li><a href="/login">SignIn <i class="fa fa-sign-in menu-icon" ></i></a></li> -->
+                <li><a (click)="logout()">SignOut <i class="fa fa-sign-out menu-icon" ></i></a></li>
             </ul>
     
 
@@ -70,18 +72,19 @@
             </ul>
         </div>
     </nav>
-    <div id="headerwrap" class="half">
-        <div class="container">
+    <div  *ngIf="tokenStorage.isUser() " id="headerwrap" class="half">
+        <!-- <div class="container">
          <div class="gap"></div> 
          <div id="bannertext" class="centered fade-down section-heading">
              <h2 class="main-title">Single Post</h2>
              <hr>
              <p>She evil face fine calm have now. Separate screened he outweigh of distance landlord.</p>
-         </div>
-        <div *ngIf="templateuser">
+         </div> -->
+        <!-- <div *ngIf="templateuser">
         <button (click)="logout()" style="margin-left:100px">Logout</button>
-        </div>
-     </div><!-- /container -->
+        </div> -->
+     <!-- </div> -->
+     <!-- /container -->
     </div><!-- /headerwrap -->
     <!-- END NAV -->
 	
@@ -89,3 +92,4 @@
 
 
 <router-outlet></router-outlet>
+<app-footer></app-footer>

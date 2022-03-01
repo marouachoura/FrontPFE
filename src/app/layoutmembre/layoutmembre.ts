@@ -17,7 +17,7 @@ comp:any;
 d:any;
 pr:any;
 etd:any;
-    constructor(private ms: MembersService,private tokenStorage: TokenStorageService,private router: Router,private dialog: MatDialog) { }
+    constructor(private ms: MembersService,public tokenStorage: TokenStorageService,private router: Router,private dialog: MatDialog) { }
 
     connect(id:any){
       this.ms.getMemberByCompte(id)

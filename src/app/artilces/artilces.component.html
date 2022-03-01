@@ -1,6 +1,6 @@
 <h2  style="margin-left:100px">Liste Des Formations</h2>
 
-<div fxLayout="row" fxLayoutAlign="end center">
+<div *ngIf="templateadmin" fxLayout="row" fxLayoutAlign="end center">
     <button routerLink="/FormPub" class="btn btn-primary">
         create new
     </button>
@@ -54,4 +54,3 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <br/><br/>
-<app-footer></app-footer>

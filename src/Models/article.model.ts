@@ -1,5 +1,5 @@
 export interface Publications {
-    id: string;
+    id: number;
     nomFormation: string;
     nomFormateur: string;
     niveau: string;

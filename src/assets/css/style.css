@@ -1853,11 +1853,13 @@ i.pinterest,span.pinterest{color: #cb2027;}
 }
 
 #footerwrap {
+
     background-color: #1a1a1a;
     bottom: 0;
     width: 100%;
     z-index: -1;
     padding: 40px 0 0px;
+    
 }
 
 #footerwrap h1, #footerwrap h2, #footerwrap h3, #footerwrap h4, #footerwrap h5, #footerwrap h6 {

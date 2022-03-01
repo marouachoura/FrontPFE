@@ -25,6 +25,9 @@ import { EnseignantFormComponent } from './enseignant-form/enseignant-form.compo
 import { FootertComponent } from './footer/footer.component';
 import { EmploueFormationDetailComponent } from './emploue-formation-detail/emploue-formation-detail.component';
 import { authInterceptorProviders } from 'src/_helpers/auth.interceptor';
+import { AuthGuard } from './auth.guard';
+import { SitesComponent } from './sites/sites.component';
+import { SitesFormComponent } from './sites-form/sites-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { authInterceptorProviders } from 'src/_helpers/auth.interceptor';
     LoginComponent,
     EnseignantFormComponent,
     FootertComponent,
-    EmploueFormationDetailComponent
+    EmploueFormationDetailComponent,
+    SitesComponent,
+    SitesFormComponent
 
   ],
   imports: [
@@ -60,7 +65,7 @@ import { authInterceptorProviders } from 'src/_helpers/auth.interceptor';
 
   ],
 
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders ,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

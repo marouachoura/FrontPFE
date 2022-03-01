@@ -2,23 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Publications } from 'src/Models/article.model';
-import { PublicationsService } from 'src/Services/publications.service';
+import { Sites } from 'src/Models/site.model';
+import { SiteService } from 'src/Services/site.service';
 import { TokenStorageService } from 'src/Services/token-storage.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
+
 @Component({
-  selector: 'app-artilces',
-  templateUrl: './artilces.component.html',
-  styleUrls: ['./artilces.component.css']
+  selector: 'app-sites',
+  templateUrl: './sites.component.html',
+  styleUrls: ['./sites.component.css']
 })
-export class ArtilcesComponent implements OnInit {
+export class SitesComponent implements OnInit {
+
   templateadmin=false;
-  dataSource: MatTableDataSource<Publications> = new MatTableDataSource(this.ms.tab1);
-  displayedColumns: string[] = ["nomFormation", "nomFormateur", "niveau", "certification", "duree", "Actions"];
+  dataSource: MatTableDataSource<Sites> = new MatTableDataSource(this.ms.tab1);
+  displayedColumns: string[] = ["id", "nomSite", "Actions"];
   roles:any;
   ad:any;
-  constructor(private ms: PublicationsService, private router: Router, private dialog: MatDialog,private tokenStorage: TokenStorageService) {
+  constructor(private ms: SiteService, private router: Router, private dialog: MatDialog,private tokenStorage: TokenStorageService) {
     this.dataSource = new MatTableDataSource(this.ms.tab1);
   }
 
@@ -31,14 +33,14 @@ export class ArtilcesComponent implements OnInit {
         if (isDeleted) {
           //exécute de code de la suppression 
           console.log(id);
-          this.ms.RemovePubById(id).then(() => this.GetPubs());
+          this.ms.RemoveSiteById(id).then(() => this.GetSites());
 
         }
       }
 
     )
   }
-  GetPubs(): void {
+  GetSites(): void {
 
     this.ms.GetALL()
       .then((data) => {
@@ -66,7 +68,7 @@ export class ArtilcesComponent implements OnInit {
     }
     
 
-    this.GetPubs();
+    this.GetSites();
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getUser().roles;
       if(this.roles=='ROLE_ADMIN'){
@@ -76,4 +78,5 @@ export class ArtilcesComponent implements OnInit {
 
 
 }
+
 }

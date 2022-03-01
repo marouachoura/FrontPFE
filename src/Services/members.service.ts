@@ -24,11 +24,7 @@ export class MembersService {
   constructor(private httpClient: HttpClient) { }
   saveMember(member: Members): Promise<Members> {
     return this.httpClient.post<Members>('http://localhost:8080/api/test/employes/add', member).toPromise();
-    /*const memberToSave =  {...member,}
-    memberToSave.id = member.id??Math.ceil(Math.random()*10000).toString();
-    memberToSave.createDate = member.createDate??new Date().toString();
-    this.tab=[memberToSave,...this.tab.filter(item => item.id!==memberToSave.id)];
-    return new Promise(resolve => resolve(memberToSave));*/
+    
   }
   saveEnseignant(member: Members): Promise<Members> {
     return this.httpClient.post<Members>('http://localhost:9000/MEMBRE-SERVICE/membres/enseignant', member).toPromise();
@@ -40,7 +36,7 @@ export class MembersService {
   }
 
   RemoveMemberById(id: string): Promise<void> {
-    return this.httpClient.delete<void>('http://localhost:9000/MEMBRE-SERVICE/membres/' + id).toPromise();
+    return this.httpClient.delete<void>('http://localhost:8080/api/test/employes/delete/' + id).toPromise();
 
     /*this.tab=this.tab.filter(item => item.id!=id);
     return new Promise(resolve => resolve());*/
@@ -89,6 +85,12 @@ export class MembersService {
   GetFomations(id : any): Promise<Publications[]> {
     return this.httpClient.get<any[]>('http://localhost:8080/api/test/employes/formations/'+id).toPromise();
 
+  }
+
+
+  public affecter(idEmp: number, idformation: number) {
+    
+    return this.httpClient.put<void>(`http://localhost:8080/api/test/employes/${idEmp}/formations/${idformation}`,{});
   }
 
   // GetSite(id: any): Promise<Sites> {

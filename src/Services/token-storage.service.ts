@@ -7,6 +7,7 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
+ 
   constructor() { }
 
   signOut(): void {
@@ -26,6 +27,31 @@ export class TokenStorageService {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
+   
+  public isAdmin( ): Boolean {
+   
+   //return this.getUser().roles.include( "ROLE_ADMIN"  );
+   if (! this.isEmptyObject(this.getUser())){
+    //console.log( this.getUser().roles.includes("ROLE_ADMIN"))
+
+      return this.getUser().roles.includes("ROLE_ADMIN")
+   }
+   return false
+  }
+  public isUser( ): Boolean {
+  
+   //return this.getUser().roles.include( "ROLE_USER");
+   if (! this.isEmptyObject(this.getUser()) ){
+  //  console.log(this.getUser().roles.includes("ROLE_USER"))
+
+    return   this.getUser().roles.includes("ROLE_USER")
+   }
+   return false 
+  
+  }
+  public isEmptyObject(obj: any) {
+    return Object.keys(obj).length === 0 && obj.constructor === Object;
+}
 
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
