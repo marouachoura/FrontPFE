@@ -13,7 +13,6 @@ import { ConfirmDialogModule } from './confirm-dialog.module';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArtilcesComponent } from './artilces/artilces.component';
-import { FirebaseModule } from './firebase/firebase.module';
 //import { LoginComponent } from './logi/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleFormComponent } from './article-form/article-form.component';
@@ -54,7 +53,7 @@ import { SitesFormComponent } from './sites-form/sites-form.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FirebaseModule,
+   
     MaterialModule,
     FlexLayoutModule, HttpClientModule,
     ConfirmDialogModule,

@@ -39,11 +39,11 @@ template {
   display: none;
 }
 
-html {
+/* html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-}
+} */
 
 body {
   margin: 0;
@@ -255,12 +255,12 @@ table {
   @page  {
     margin: 2cm .5cm;
   }
-  p,
+  /* p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
-  }
+  } */
   h2,
   h3 {
     page-break-after: avoid;
@@ -301,7 +301,7 @@ table {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* -webkit-tap-highlight-color: rgba(0, 0, 0, 0); */
 }
 
 body {
@@ -1805,7 +1805,7 @@ table th[class*="col-"] {
     overflow-y: hidden;
     border: 1px solid #dddddd;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch; */
   }
   .table-responsive > .table {
     margin-bottom: 0;
@@ -3492,7 +3492,7 @@ input[type="button"].btn-block {
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box;
+  /* background-clip: padding-box; */
 }
 
 .dropdown-menu.pull-right {
@@ -4382,7 +4382,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   overflow-x: visible;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  -webkit-overflow-scrolling: touch;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .navbar-collapse:before,
@@ -6024,7 +6024,7 @@ button.close {
   outline: none;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background-clip: padding-box;
+  /* background-clip: padding-box; */
 }
 
 .modal-backdrop {
@@ -6249,7 +6249,7 @@ button.close {
   border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  background-clip: padding-box;
+  /* background-clip: padding-box; */
 }
 
 .popover.top {

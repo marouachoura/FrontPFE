@@ -1,7 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/Services/AuthService';
 import { MembersService } from 'src/Services/members.service';
 
 import { TokenStorageService } from 'src/Services/token-storage.service';

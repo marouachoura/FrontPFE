@@ -4,15 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyAhcK1IAAxP09JG9Qzba4RcYAedoqwTQfU",
-    authDomain: "projetgestionlab.firebaseapp.com",
-    projectId: "projetgestionlab",
-    storageBucket: "projetgestionlab.appspot.com",
-    messagingSenderId: "108720197349",
-    appId: "1:108720197349:web:154a5df62b25753c53ce0c",
-    measurementId: "G-PQW7DTB4R8"
-  }
+  // firebase: {
+  //   apiKey: "AIzaSyAhcK1IAAxP09JG9Qzba4RcYAedoqwTQfU",
+  //   authDomain: "projetgestionlab.firebaseapp.com",
+  //   projectId: "projetgestionlab",
+  //   storageBucket: "projetgestionlab.appspot.com",
+  //   messagingSenderId: "108720197349",
+  //   appId: "1:108720197349:web:154a5df62b25753c53ce0c",
+  //   measurementId: "G-PQW7DTB4R8"
+  // }
 };
 
 /*
