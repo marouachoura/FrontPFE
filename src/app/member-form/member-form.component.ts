@@ -32,7 +32,7 @@ export class MemberFormComponent implements OnInit {
       dateNais: new FormControl(item?.dateNais),
       login: new FormControl(item?.login, [Validators.required]),
       site: new FormControl(item?.site, [Validators.required]),
-      formations : new FormControl(item?.formations, [Validators.required]),
+      formations : new FormControl(item?.formations),
     
 
 
