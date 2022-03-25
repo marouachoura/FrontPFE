@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: FrontPFE
+  ports:
+    - port: 4200
+      targetPort: 4200
+      nodePort: 31000
+  externalIPs:
+    - 10.66.13.85

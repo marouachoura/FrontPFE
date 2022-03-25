@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+  labels:
+    app: FrontPFE
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: FrontPFE
+  template:
+    metadata:
+      labels:
+        app: FrontPFE
+    spec:
+      containers:
+      - name: angular
+        image: maroua20/angular-artifact
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4200
