@@ -3,12 +3,11 @@ kind: Service
 metadata:
   name: front-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: FrontPFE
   ports:
     - port: 4200
       targetPort: 4200
       nodePort: 31000
-  externalIPs:
-    - 10.66.13.85
+      protocol: TCP

@@ -24,20 +24,20 @@ export class MembersService {
   //public tab = GLOBAL._db.members;
   constructor(private httpClient: HttpClient) { }
   saveMember(member: Members): Promise<Members> {
-    return this.httpClient.post<Members>('http://10.66.13.85:8080/api/test/employes/add', member).toPromise();
+    return this.httpClient.post<Members>('http://10.66.13.85:32000/api/test/employes/add', member).toPromise();
     
   }
   saveEnseignant(member: Members): Promise<Members> {
-    return this.httpClient.post<Members>('http://10.66.13.85:9000/MEMBRE-SERVICE/membres/enseignant', member).toPromise();
+    return this.httpClient.post<Members>('http://10.66.13.85:32000/MEMBRE-SERVICE/membres/enseignant', member).toPromise();
   }
   getMemberById(id: string): Promise<Members> {
-    return this.httpClient.get<Members>('http://10.66.13.85:8080/api/test/employes/find/' + id).toPromise();
+    return this.httpClient.get<Members>('http://10.66.13.85:32000/api/test/employes/find/' + id).toPromise();
     /*return new Promise(resolve => resolve(
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
 
   RemoveMemberById(id: string): Promise<void> {
-    return this.httpClient.delete<void>('http://10.66.13.85:8080/api/test/employes/delete/' + id).toPromise();
+    return this.httpClient.delete<void>('http://10.66.13.85:32000/api/test/employes/delete/' + id).toPromise();
 
     /*this.tab=this.tab.filter(item => item.id!=id);
     return new Promise(resolve => resolve());*/
@@ -50,48 +50,48 @@ export class MembersService {
 
   }*/
   GetALL(): Promise<Members[]> {
-    return this.httpClient.get<Members[]>('http://10.66.13.85:8080/api/test/employes' ).toPromise();
+    return this.httpClient.get<Members[]>('http://10.66.13.85:32000/api/test/employes' ).toPromise();
 
   }
 
   GetEnseignant(): Promise<Members[]> {
-    return this.httpClient.get<any[]>('http://10.66.13.85:9000/MEMBRE-SERVICE/enseignant').toPromise();
+    return this.httpClient.get<any[]>('http://10.66.13.85:32000/MEMBRE-SERVICE/enseignant').toPromise();
 
   }
   EditMember(id: any, member: Members): Promise<Members> {
-    return this.httpClient.put<Members>('http://10.66.13.85:9000/MEMBRE-SERVICE/membres/etudiant/' + id, member).toPromise();
+    return this.httpClient.put<Members>('http://10.66.13.85:32000/MEMBRE-SERVICE/membres/etudiant/' + id, member).toPromise();
 
 
   }
   getMemberByCompte(id: any): Promise<Members> {
-    return this.httpClient.get<Members>('http://10.66.13.85:9000/MEMBRE-SERVICE/Compte/' + id).toPromise();
+    return this.httpClient.get<Members>('http://10.66.13.85:32000/MEMBRE-SERVICE/Compte/' + id).toPromise();
     /*return new Promise(resolve => resolve(
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
 
    getfullMembre(id: any): Promise<Members> {
-    return this.httpClient.get<Members>('http://10.66.13.85:9000/MEMBRE-SERVICE/fullmember/' + id).toPromise();
+    return this.httpClient.get<Members>('http://10.66.13.85:32000/MEMBRE-SERVICE/fullmember/' + id).toPromise();
     /*return new Promise(resolve => resolve(
       this.tab.filter(item => item.id===id)[0]??null));*/
   }
    GetSiteEmploye(id: any): Promise<Sites> {
-    return this.httpClient.get<any>('http://10.66.13.85:8080/api/test/employes/site'+id).toPromise();
+    return this.httpClient.get<any>('http://10.66.13.85:32000/api/test/employes/site'+id).toPromise();
 
   }
 
   GetSites(): Promise<Sites[]> {
-    return this.httpClient.get<any[]>('http://10.66.13.85:8080/api/test/sites/').toPromise();
+    return this.httpClient.get<any[]>('http://10.66.13.85:32000/api/test/sites/').toPromise();
 
   }
   GetFomations(id : any): Promise<Publications[]> {
-    return this.httpClient.get<any[]>('http://10.66.13.85:8080/api/test/employes/formations/'+id).toPromise();
+    return this.httpClient.get<any[]>('http://10.66.13.85:32000/api/test/employes/formations/'+id).toPromise();
 
   }
 
 
   public affecter(idEmp: number, idformation: number) {
     
-    return this.httpClient.put<void>(`http://10.66.13.85:8080/api/test/employes/${idEmp}/formations/${idformation}`,{});
+    return this.httpClient.put<void>(`http://10.66.13.85:32000/api/test/employes/${idEmp}/formations/${idformation}`,{});
   }
 
   // GetSite(id: any): Promise<Sites> {

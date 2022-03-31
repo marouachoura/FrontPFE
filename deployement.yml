@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: angular
-        image: maroua20/angular-artifact
+        image: maroua20/angular-artifact-newversion:v1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 4200
+          protocol: TCP
