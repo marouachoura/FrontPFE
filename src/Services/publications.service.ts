@@ -16,7 +16,8 @@ export class PublicationsService {
   affecter(idPub:any,idmembre: any): Promise<void> {
     return this.httpClient.get<void>('http://10.66.13.85:32000/MEMBRE-SERVICE/affecterAuteurToPub/' + idPub +'/' +idmembre).toPromise();
 
-    /*this.tab=this.tab.filter(item => item.id!=id);
+    /* test test testt testtt testtttt
+    this.tab=this.tab.filter(item => item.id!=id);
     return new Promise(resolve => resolve());*/
 
   }
