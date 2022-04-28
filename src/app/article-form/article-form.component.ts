@@ -54,7 +54,7 @@ export class ArticleFormComponent implements OnInit {
     //.then na3mlouha wa9t c'et bon il resultat fil resolve w nhebou ya3mel 7aja o5ra , 
     this.ms.savePub(savePub)
       .then((data) => {
-        this.ms.affecter(data.id,this.comp)
+       // this.ms.affecter(data.id,this.comp)
         this.router.navigate(['./formations'])
 
 
