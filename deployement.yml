@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: maroua20/angular-docker-newversion:v1.0
+        image: maroua20/angular-image-jenkins:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 4200
