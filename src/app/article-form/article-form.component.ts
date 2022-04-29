@@ -36,15 +36,7 @@ export class ArticleFormComponent implements OnInit {
     })
     
   }
-//  connect(id:any){
-  //  this.mss.getMemberByCompte(id)
-   // .then((data) => {
-     // console.log(data)
-     // this.comp=data.id;
-     // console.log(this.comp)
 
-   // });
- // }
   onsubmit() {
     
     console.log(this.form.value);
@@ -67,7 +59,7 @@ export class ArticleFormComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
   
       this.d=this.tokenStorage.getUser().id;
-     // this.connect(this.d)
+     
 }
     this.currentid = this.acivateRoute.snapshot.params.id;//récupéer l'id il mawjoud fil url
     // if truely testiha bil  !! 

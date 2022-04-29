@@ -13,14 +13,8 @@ export class PublicationsService {
     return this.httpClient.post<Publications>('http://10.66.13.85:32000/api/test/formations/add', pub).toPromise();
 
   }
-//  affecter(idPub:any,idmembre: any): Promise<void> {
-  //  return this.httpClient.get<void>('http://10.66.13.85:32000/MEMBRE-SERVICE/affecterAuteurToPub/' + idPub +'/' +idmembre).toPromise();
-
     /* test test testt testtt testtttt testttttttt jenkins
-    //this.tab=this.tab.filter(item => item.id!=id);
-   // return new Promise(resolve => resolve());*/
-
- // }
+    
 
   getPubById(id: string): Promise<Publications> {
     return this.httpClient.get<Publications>('http://10.66.13.85:32000/api/test/formations/find/' + id).toPromise();

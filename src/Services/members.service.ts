@@ -63,11 +63,7 @@ export class MembersService {
 
 
   }
-//  getMemberByCompte(id: any): Promise<Members> {
-  //  return this.httpClient.get<Members>('http://10.66.13.85:32000/MEMBRE-SERVICE/Compte/' + id).toPromise();
-    /*return new Promise(resolve => resolve(
-    //  this.tab.filter(item => item.id===id)[0]??null));*/
- // }
+
 
    getfullMembre(id: any): Promise<Members> {
     return this.httpClient.get<Members>('http://10.66.13.85:32000/MEMBRE-SERVICE/fullmember/' + id).toPromise();
