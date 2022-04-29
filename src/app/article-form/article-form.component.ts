@@ -67,7 +67,8 @@ export class ArticleFormComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
   
       this.d=this.tokenStorage.getUser().id;
-     // this.connect(this.d)}
+     // this.connect(this.d)
+}
     this.currentid = this.acivateRoute.snapshot.params.id;//récupéer l'id il mawjoud fil url
     // if truely testiha bil  !! 
     if (!!this.currentid) {
