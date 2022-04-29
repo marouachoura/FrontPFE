@@ -18,16 +18,16 @@ pr:any;
 etd:any;
     constructor(private ms: MembersService,public tokenStorage: TokenStorageService,private router: Router,private dialog: MatDialog) { }
 
-    connect(id:any){
-      this.ms.getMemberByCompte(id)
-      .then((data) => {
-        console.log(data)
-        this.comp=data.id;
-        console.log(this.comp)
-        this.profile(this.comp);
+//    connect(id:any){
+  //    this.ms.getMemberByCompte(id)
+    //  .then((data) => {
+    //    console.log(data)
+    //    this.comp=data.id;
+    //    console.log(this.comp)
+    //    this.profile(this.comp);
   
-      });
-    }
+  //    });
+  //  }
     logout(): void {
       this.tokenStorage.signOut();
       this.router.navigate(['./login'])
@@ -58,7 +58,7 @@ etd:any;
       //console.log(this.tokenStorage.getUser())
      // console.log(this.tokenStorage.getUser().id)
 this.d=this.tokenStorage.getUser().id;
-this.connect(this.d)
+// this.connect(this.d)
 
       //console.log(this.d);
       //console.log(this.connect(this.d));

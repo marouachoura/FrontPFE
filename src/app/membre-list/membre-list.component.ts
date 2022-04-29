@@ -100,15 +100,15 @@ export class MembreListComponent implements OnInit {
 
 
   }
-  connect(id:any){
-    this.ms.getMemberByCompte(id)
-    .then((data) => {
-      console.log(data)
-      this.comp=data.id;
-      console.log(this.comp)
+//  connect(id:any){
+//    this.ms.getMemberByCompte(id)
+//    .then((data) => {
+//      console.log(data)
+//      this.comp=data.id;
+//      console.log(this.comp)
 
-    });
-  }
+  //  });
+ // }
 
   profile(id:any){
     this.ms.getfullMembre(id) .then((data) => {
