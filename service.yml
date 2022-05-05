@@ -9,5 +9,5 @@ spec:
   ports:
     - port: 4200
       targetPort: 4200
-      nodePort: 31002
+      nodePort: 31003
       protocol: TCP
