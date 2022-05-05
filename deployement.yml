@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: maroua20/angular-image-jenkins:latest
+        image: maroua20/angular-test:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 4200
