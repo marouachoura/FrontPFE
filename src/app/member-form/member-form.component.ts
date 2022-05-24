@@ -91,12 +91,12 @@ export class MemberFormComponent implements OnInit {
 //   }
 // )
 
-this.ms.GetSites().then(
-  (data)=>{
-    this.sites=data;
-    console.log(this.sites)
-  }
-)
+//this.ms.GetSites().then(
+  //(data)=>{
+   // this.sites=data;
+   // console.log(this.sites)
+ // }
+//)
 this.mf.GetALL().then(
   (data) => {
     this.formations=data ;
