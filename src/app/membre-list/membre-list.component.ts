@@ -54,7 +54,7 @@ export class MembreListComponent implements OnInit {
       isDeleted => {
         if (isDeleted) {
           //exécute de code de la suppression 
-          console.log(id);
+         // console.log(id);
           this.ms.RemoveMemberById(id).then(() => this.GetMembers());
 
         }
@@ -83,7 +83,7 @@ export class MembreListComponent implements OnInit {
     this.ms.GetALL()
     .then((data) => {
       this.dataSource.data = data;
-      console.log(data);
+     // console.log(data);
     });
 
     
@@ -112,7 +112,7 @@ export class MembreListComponent implements OnInit {
 
   profile(id:any){
     this.ms.getfullMembre(id) .then((data) => {
-      console.log(data)
+     // console.log(data)
       this.pr=data
     });
   }
@@ -151,8 +151,8 @@ export class MembreListComponent implements OnInit {
       if(this.roles=='ROLE_USER'){
         this.us=true;
       }
-      console.log(this.roles);
-      console.log(this.connect(this.tokenStorage.getUser().id));
+     // console.log(this.roles);
+     // console.log(this.connect(this.tokenStorage.getUser().id));
       
     }*/
   }
