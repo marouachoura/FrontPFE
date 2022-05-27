@@ -24,8 +24,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.ms.GetSites().then(
       (data)=>{
-       // this.sites=data;
-        console.log(this.sites)
+        this.sites=data;
+       // console.log(this.sites)
       }
     )
   }
