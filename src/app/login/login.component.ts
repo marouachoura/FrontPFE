@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
-      console.log(this.tokenStorage.getUser())
-      console.log(this.tokenStorage.getUser().id)
+     // console.log(this.tokenStorage.getUser())
+     // console.log(this.tokenStorage.getUser().id)
       
 
-      console.log(this.roles);
+     // console.log(this.roles);
     }
   }
 
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.d = this.tokenStorage.getUser().id;
-        console.log(this.tokenStorage.getUser())
+       // console.log(this.tokenStorage.getUser())
         this.router.navigate(['./members'])
         // this.reloadPage();
         console.log(data);

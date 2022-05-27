@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
     this.ms.GetSites().then(
       (data)=>{
         this.sites=data;
-        console.log(this.sites)
+      //  console.log(this.sites)
       }
     )
   }
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(nomPrenom ,cin,dateNais,login ,site,username, email, password).subscribe(
    
       data => {
-        console.log(data);
+        //console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.router.navigate(['./login'])

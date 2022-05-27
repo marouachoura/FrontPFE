@@ -30,7 +30,7 @@ export class ArtilcesComponent implements OnInit {
       isDeleted => {
         if (isDeleted) {
           //exécute de code de la suppression 
-          console.log(id);
+         // console.log(id);
           this.ms.RemovePubById(id).then(() => this.GetPubs());
 
         }

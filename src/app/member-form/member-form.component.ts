@@ -60,9 +60,9 @@ export class MemberFormComponent implements OnInit {
     //   })
     this.ms.saveMember(saveMember).then(
       (data) => {
-        console.log(this.acivateRoute.snapshot.params.id) ;
-        console.log(data) ;
-        console.log(formations);
+      //  console.log(this.acivateRoute.snapshot.params.id) ;
+      //  console.log(data) ;
+      //  console.log(formations);
         
         this.affecterFormation(this.acivateRoute.snapshot.params.id ,formations)
       },
@@ -72,7 +72,7 @@ export class MemberFormComponent implements OnInit {
   affecterFormation(idEmp:number,idformation:number) {
     this.ms.affecter(idEmp,idformation).subscribe(
       data => {
-        console.log(data)
+        //console.log(data)
         this.router.navigate(["./members"])
       }
     )
@@ -100,7 +100,7 @@ export class MemberFormComponent implements OnInit {
 this.mf.GetALL().then(
   (data) => {
     this.formations=data ;
-    console.log(this.formations)
+    //console.log(this.formations)
   }
 )
 
@@ -113,7 +113,7 @@ this.mf.GetALL().then(
       this.ms.getMemberById(this.currentid).then(
         (item) => {
           this.item1 = item; this.initform(this.item1);
-          console.log(item);
+       //   console.log(item);
         }
       );
 
