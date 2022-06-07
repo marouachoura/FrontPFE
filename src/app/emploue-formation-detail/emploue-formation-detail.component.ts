@@ -3,7 +3,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Publications } from 'src/Models/article.model';
 import { MembersService } from 'src/Services/members.service';
-import { TokenStorageService } from 'src/Services/token-storage.service';
 
 @Component({
   selector: 'app-emploue-formation-detail',
@@ -17,7 +16,7 @@ export class EmploueFormationDetailComponent implements OnInit {
   displayedColumns: string[] = ["nomFormation", "nomFormateur", "niveau", "certification", "duree"];
   roles:any;
   ad:any;
-  constructor(private ms: MembersService, private router: Router ,private acivateRoute: ActivatedRoute ,private tokenStorage: TokenStorageService ) {
+  constructor(private ms: MembersService, private router: Router ,private acivateRoute: ActivatedRoute ) {
     this.dataSource = new MatTableDataSource(this.ms.tab);
   }
 
@@ -29,8 +28,7 @@ export class EmploueFormationDetailComponent implements OnInit {
         this.dataSource.data = data;
       });
     //console.log(this.dataSource.data);
-      console.log(this.tokenStorage.getToken());
-      console.log(this.tokenStorage.getUser()) ;
+ 
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
