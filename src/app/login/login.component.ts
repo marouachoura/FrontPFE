@@ -37,6 +37,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
+function sleep(ms) {
+  return new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+}
+
   onSubmit(): void {
    // debugger ;
     //console.log("maroua***********************************************************************");
@@ -53,6 +59,8 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.d = this.tokenStorage.getUser().id;
        // console.log(this.tokenStorage.getUser())
+       await sleep(20000);
+       console.log("World!");
         this.router.navigate(['./members'])
         // this.reloadPage();
         console.log(data);
