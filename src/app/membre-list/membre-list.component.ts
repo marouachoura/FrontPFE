@@ -65,7 +65,7 @@ export class MembreListComponent implements OnInit {
 
  formationDetails(id:string){
     setTimeout(()=>{
-      this.router.navigate([id +'/formationsDetail']);
+      this.router.navigate(['./'+id +'/formationsDetail']);
     }, 50000);
     console.log("sleep timee")
   }
