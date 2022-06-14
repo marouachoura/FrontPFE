@@ -41,8 +41,8 @@
     <ng-container matColumnDef="formations" stickyEnd>
       <th mat-header-cell class="px-12" *matHeaderCellDef>formations </th>
       <td mat-cell class="px-12" *matCellDef="let element">
-          <button routerLink="{{element.id}}/formationsDetail">
-              afficher le details
+          <button (click)=" formationDetails(element.id)">
+              afficher les details
           </button>
 
       </td>

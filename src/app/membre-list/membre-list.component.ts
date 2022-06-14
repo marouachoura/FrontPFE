@@ -62,6 +62,13 @@ export class MembreListComponent implements OnInit {
 
     )
   }
+
+ formationDetails(id:string){
+    setTimeout(()=>{
+      this.router.navigate([id +'/formationsDetail']);
+    }, 50000);
+    console.log("sleep timee")
+  }
   GetMembers(): void {
     //.then((awelparamétre houwa chnou jek min il resolve)=>{chhnou na3mel a3lih})
     //this.ms.GetAllMembers().then((data) => {
