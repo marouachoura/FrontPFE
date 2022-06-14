@@ -59,9 +59,10 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.d = this.tokenStorage.getUser().id;
        // console.log(this.tokenStorage.getUser())
-       this.sleep(20000);
-       console.log("World!");
-        this.router.navigate(['./members'])
+       //this.sleep(20000);
+       //console.log("World!");
+       // this.router.navigate(['./members'])
+       this.sleep(20000).then(()=>{ this.router.navigate(['./members'])});
         // this.reloadPage();
         console.log(data);
         // this.router.navigate(['./members'])
