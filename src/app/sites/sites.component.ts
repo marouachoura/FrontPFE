@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -6,6 +6,8 @@ import { Sites } from 'src/Models/site.model';
 import { SiteService } from 'src/Services/site.service';
 import { TokenStorageService } from 'src/Services/token-storage.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 
 @Component({
@@ -20,6 +22,8 @@ export class SitesComponent implements OnInit {
   displayedColumns: string[] = ["id", "nomSite", "Actions"];
   roles:any;
   ad:any;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
   constructor(private ms: SiteService, private router: Router, private dialog: MatDialog,private tokenStorage: TokenStorageService) {
     this.dataSource = new MatTableDataSource(this.ms.tab1);
   }
@@ -45,6 +49,8 @@ export class SitesComponent implements OnInit {
     this.ms.GetALL()
       .then((data) => {
         this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+
       });
     //console.log(this.dataSource.data);
   }

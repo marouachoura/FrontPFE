@@ -28,6 +28,7 @@ import { AuthGuard } from './auth.guard';
 import { SitesComponent } from './sites/sites.component';
 import { SitesFormComponent } from './sites-form/sites-form.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -59,9 +60,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     FlexLayoutModule, HttpClientModule,
     ConfirmDialogModule,
     FormsModule,
-    MatNativeDateModule
-
-
+    MatNativeDateModule,
+    MatPaginatorModule
 
   ],
 

@@ -1,7 +1,6 @@
-<div class="col-md-12">
+<!-- <div class="col-md-12">
   <h2 style="margin-left:50%;margin-top:50px">Sign IN </h2>
   <div class="card card-container">
-    <!-- <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" /> -->
     <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
@@ -29,15 +28,14 @@
       </div>
       <div class="row">
         <div class="col-6 col-sm-6"> <a href="#">
-            <p class="text-left pt-2 ml-1">Forgot password?</p>
+            <p style="margin-top: 10px;" class="text-left pt-2 ml-1">Forgot password?</p>
           </a> </div>
         <div class="col-6 col-sm-6"> 
-          <button  routerLink="/register" class="btn btn-primary btn-block">
-            register
+          
+          <button  routerLink="/register" class="btn btn-primary btn-block" style="margin-top: 10px;">
+            Register
           </button>
-          <!-- <a href="./register">
-            <p class="text-right pt-2 mr-1">Sign Up Now</p>
-          </a>  -->
+
         </div>
       </div>
       <div class="form-group">
@@ -51,4 +49,59 @@
       Logged in as {{ roles }}.
     </div>
   </div>
-</div>
+</div> -->
+
+  <div class="d-flex align-items-center auth px-0" style="margin-top:10%;">
+    <div class="row w-100 mx-0">
+      <div class="col-lg-4 mx-auto">
+        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+          <h1 style="text-align:center  ; font-weight: bold; color: #007bff;">Login To your Account </h1>
+          <form class="pt-3"  *ngIf="!isLoggedIn" [formGroup]="form" (ngSubmit)="onSubmit()">
+             <mat-error *ngIf="invalidLogin" >Invalid Username or Password </mat-error>
+            
+             
+            <div class="form-group">
+              <mat-error  *ngIf="(loginFormControl.username.touched || submitted) && loginFormControl.username.errors?.required">
+                Username is required
+              </mat-error>
+          
+         
+              <label>UserName</label>
+              <div class="input-group mb-2">
+               <input class="form-control form-control-lg" type="text" formControlName="username" placeholder="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <mat-error *ngIf="(loginFormControl.password.touched || submitted) && loginFormControl.password.errors?.required">
+                Password is required
+              </mat-error>
+              <mat-error *ngIf="loginFormControl.password.touched && loginFormControl.password.errors?.invalidPassword">
+               Password should have minimum 6 characters
+              </mat-error>
+              <label>Password</label>
+            
+             <div class="input-group mb-2">
+              <input type="password" class="form-control form-control-lg" formControlName="password"placeholder="Password">
+             </div>
+            </div>
+           
+            <div class="my-2 d-flex justify-content-between align-items-center">
+              <div class="form-check"></div>
+              
+            </div>
+            <div>
+              <button class="btn-lg btn-block font-weight-medium" type="submit">Sign In</button>
+             <div class="register"> Not a member?<a routerLink="/register"> Sign Up</a> </div>
+            </div>
+           
+          
+          </form>
+          <div class="alert alert-success" *ngIf="isLoggedIn">
+            Logged in as {{ roles }}.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -6,11 +6,12 @@ import { Publications } from 'src/Models/article.model';
 import { PublicationsService } from 'src/Services/publications.service';
 import { TokenStorageService } from 'src/Services/token-storage.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-artilces',
   templateUrl: './artilces.component.html',
-  styleUrls: ['./artilces.component.css']
+  styleUrls: ['./artilces.component.scss']
 })
 export class ArtilcesComponent implements OnInit {
   templateadmin=false;
@@ -18,6 +19,8 @@ export class ArtilcesComponent implements OnInit {
   displayedColumns: string[] = ["nomFormation", "nomFormateur", "niveau", "certification", "duree", "Actions"];
   roles:any;
   ad:any;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
   constructor(private ms: PublicationsService, private router: Router, private dialog: MatDialog,private tokenStorage: TokenStorageService) {
     this.dataSource = new MatTableDataSource(this.ms.tab1);
   }
@@ -43,6 +46,8 @@ export class ArtilcesComponent implements OnInit {
     this.ms.GetALL()
       .then((data) => {
         this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+
       });
     //console.log(this.dataSource.data);
   }

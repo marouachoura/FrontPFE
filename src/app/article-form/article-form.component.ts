@@ -24,11 +24,11 @@ export class ArticleFormComponent implements OnInit {
 
    //item? .attribut : yefhem ken si item.attribut fih valeur ye5ouha sinon ye5ou null
    this.form = new FormGroup({
-    nomFormation: new FormControl(item?.type, [Validators.required]),
-    nomFormateur: new FormControl(item?.titre, [Validators.required]),
-    niveau: new FormControl(item?.lien, [Validators.required]),
-    certification: new FormControl(item?.Sourcepdf, [Validators.required]),
-    duree: new FormControl(item?.date)
+    nomFormation: new FormControl(item?.nomFormation, [Validators.required]),
+    nomFormateur: new FormControl(item?.nomFormateur, [Validators.required]),
+    niveau: new FormControl(item?.niveau, [Validators.required]),
+    certification: new FormControl(item?.certification, [Validators.required]),
+    duree: new FormControl(item?.duree)
 
 
 
@@ -39,7 +39,7 @@ export class ArticleFormComponent implements OnInit {
 
   onsubmit() {
     
-    console.log(this.form.value);
+    //console.log(this.form.value);
     const savePub = { ...this.item1, ...this.form.value }
     //:ma3neha kol element fil item1 twali bil element ili ktebtou jdid fil form
 
@@ -54,6 +54,9 @@ export class ArticleFormComponent implements OnInit {
 
   }
 
+  retour() {
+    this.router.navigate(['./formations'])
+  }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -68,8 +71,8 @@ export class ArticleFormComponent implements OnInit {
       //mech tjib il membre à modifier w t9olou jibli il formulaire fih les données de ce member
       this.ms.getPubById(this.currentid).then(
         (item) => {
-          this.item1 = item; this.initform(this.item1);
-          console.log(item);
+          this.item1 = item; this.initform(item);
+          console.log(this.item1);
         }
       );
 

@@ -1,27 +1,37 @@
 <div class="example-container" style="margin:150px">
+    <div class="image" (click)="retour()"><img src="/assets/img/icons8-back-50.png"></div>
+    <div *ngIf="item1==null"><h1> Create New Training</h1></div>
+    <div *ngIf="item1"><h1> Update Training Details</h1></div>
+    
     <form [formGroup]="form" (ngSubmit)="onsubmit()">
-        <mat-form-field>
-            <input matInput placeholder="nomFormation" formControlName="nomFormation">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Training Name</mat-label>
+            <input matInput placeholder=" Training Name" formControlName="nomFormation">
 
         </mat-form-field>
         <br>
-        <mat-form-field>
-            <input matInput placeholder="nomFormateur" formControlName="nomFormateur">
+        <mat-form-field appearance="fill">
+            <mat-label>Name of Trainer</mat-label>
+            <input matInput placeholder="Name of Trainer" formControlName="nomFormateur">
 
         </mat-form-field>
         <br>
-        <mat-form-field>
-            <input matInput placeholder="niveau" formControlName="niveau">
+        <mat-form-field appearance="fill">
+            <mat-label> Level </mat-label>
+            <input matInput placeholder="Level" formControlName="niveau">
 
         </mat-form-field>
         <br>
-        <mat-form-field>
-            <input matInput placeholder="certification" formControlName="certification">
+        <mat-form-field appearance="fill">
+            <mat-label>Certification</mat-label>
+            <input matInput placeholder="Certification" formControlName="certification">
 
         </mat-form-field>
         <br>
-        <mat-form-field>
-            <input matInput placeholder="duree" formControlName="duree">
+        <mat-form-field appearance="fill">
+            <mat-label>Duration</mat-label>
+            <input matInput placeholder="Duration" formControlName="duree">
 
         </mat-form-field>
         <br>
@@ -33,8 +43,8 @@
           </mat-form-field>
         <br> -->
 
-
-        <button type="submit">Submit</button>
+          <div class="button"><button  mat-raised-button color="primary" type="submit">Submit</button></div>
+        
 
     </form>
 

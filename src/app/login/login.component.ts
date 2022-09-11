@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/auth.service';
 import { TokenStorageService } from 'src/Services/token-storage.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +10,17 @@ import { TokenStorageService } from 'src/Services/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {
-    username: null,
-    password: null
-  };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
  // roles: string[] = [];
  roles='';
+ form: any;
   d: any;
   templateuser = false;
   templateadmin = false;
+  submitted = false;
+  invalidLogin: any;
  // templateaVisitor = false;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private ngZone: NgZone) { }
@@ -35,8 +35,13 @@ export class LoginComponent implements OnInit {
 
      // console.log(this.roles);
     }
+    this.form = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required,Validators.minLength(6)])
+    })
   }
 
+ 
  sleep(ms:number) {
   return new Promise(
     resolve => setTimeout(resolve, ms)
@@ -46,7 +51,8 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
    // debugger ;
     //console.log("maroua***********************************************************************");
-    const { username, password } = this.form;
+    this.submitted=true;
+    const { username, password } = this.form.value;
 
     this.authService.login(username, password).subscribe(
 
@@ -80,10 +86,14 @@ export class LoginComponent implements OnInit {
         // }
       },
       err => {
+        this.invalidLogin = true;
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
     );
+  }
+  get loginFormControl() {
+    return this.form.controls;
   }
 
   reloadPage(): void {

@@ -1,12 +1,16 @@
-<h2  style="margin-left:100px">Liste Des Sites</h2>
+<mat-label style="margin-left:100px"  >Filter</mat-label>
+<input matInput (keyup)="applyFilter($event)" placeholder="Recherche" #input style="margin-left:10px ; border-style: solid; width: auto;  margin-top: 20px;">
 
-<div *ngIf="templateadmin" fxLayout="row" fxLayoutAlign="end center">
-    <button routerLink="/FormSite" class="btn btn-primary">
+<h2  style="margin-left:100px">List Of Sites</h2>
+
+<!--<div *ngIf="templateadmin" fxLayout="row" fxLayoutAlign="end center" >-->
+   
+    <button *ngIf="templateadmin" routerLink="/FormSite"   mat-raised-button color="primary" style="margin-left: 79%;margin-bottom: 50px; ">
         create new
     </button>
-</div>
-<mat-label>Filter</mat-label>
-<input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    
+<!--</div>-->
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
         <th mat-header-cell class="px-12" *matHeaderCellDef> id </th>
@@ -15,7 +19,7 @@
 
     <!-- Weight Column -->
     <ng-container matColumnDef="nomSite">
-        <th mat-header-cell *matHeaderCellDef> nomSite </th>
+        <th mat-header-cell *matHeaderCellDef> Site Name </th>
         <td mat-cell *matCellDef="let element"> {{element.nomSite}} </td>
     </ng-container>
 
@@ -23,10 +27,10 @@
     <ng-container matColumnDef="Actions" stickyEnd>
         <th mat-header-cell class="px-12" *matHeaderCellDef>Actions </th>
         <td mat-cell class="px-12" *matCellDef="let element">
-            <button routerLink="{{element.id}}/edit">
+            <button mat-icon-button color="primary" routerLink="{{element.id}}/edit">
                 <mat-icon>edit</mat-icon>
             </button>
-            <button (click)="delete(element.id)">
+            <button mat-icon-button color="warn" (click)="delete(element.id)">
                 <mat-icon>delete</mat-icon>
             </button>
 
@@ -37,4 +41,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of Employees"></mat-paginator>
+
 <br/><br/>
