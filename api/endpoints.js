@@ -15,8 +15,8 @@
   });
 
   module.exports = {
-    catalogueUrl: "http://10.66.13.85:8082",
-    // catalogueUrl:  util.format("http://catalogue%s", domain),
+    //catalogueUrl: "http://10.66.13.85:8082",
+    catalogueUrl:  util.format("http://catalogue%s", domain),
     tagsUrl:       util.format("http://catalogue%s/tags", domain),
     cartsUrl:      util.format("http://carts%s/carts", domain),
     ordersUrl:     util.format("http://orders%s", domain),
