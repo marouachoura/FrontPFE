@@ -266,7 +266,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: maroua20/my-sock-shop-front:latest
+        image: maroua20/my-sock-shop-front:v1 #maroua20/my-sock-shop-front:latest
         resources:
           limits:
             cpu: 300m
